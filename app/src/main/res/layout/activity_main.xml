@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_a_new_user"
+        android:textSize="20sp"
+        android:textColor="@color/blue"
+        android:layout_gravity="center"
+        android:padding="15dp"/>
+
+    <LinearLayout
+        android:id="@+id/stepContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp">
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="2dp"
+            android:background="@color/blue"
+            android:layout_marginStart="5dp" />
+
+        <!-- Step 1 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/stepOneButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/circular_button"
+                android:backgroundTint="@color/blue"
+                android:contentDescription="@string/step2button"
+                android:src="@drawable/baseline_person_24"
+                app:tint="@color/white"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/personal"
+                android:textColor="@color/blue"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/contactLeftView"
+            android:layout_width="50dp"
+            android:layout_height="2dp"
+            android:background="#B1ACAC" />
+
+        <!-- Step 2 -->
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/stepTwoButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/circular_button"
+                android:contentDescription="@string/step1button"
+                android:src="@drawable/baseline_local_phone_24"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/stepTwoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/contact"
+                android:textColor="@color/light_gray"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/contactRightView"
+            android:layout_width="50dp"
+            android:layout_height="2dp"
+            android:background="#B1ACAC" />
+
+        <!-- Step 3 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/stepThreeButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/circular_button"
+                android:contentDescription="@string/step3button"
+                android:src="@drawable/baseline_lock_24"
+                app:tint="#FFFFFF"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/stepThreeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/other"
+                android:textColor="@color/light_gray"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/OtherRightView"
+            android:layout_width="50dp"
+            android:layout_height="2dp"
+            android:layout_marginEnd="5dp"
+            android:background="#B1ACAC" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:max="100"
+        style="@style/CustomProgressBar"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Step Content -->
+    <FrameLayout
+        android:id="@+id/stepContentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center">
+
+        <include layout="@layout/form_step_one" />
+
+    </FrameLayout>
+
+    <!-- Previous and Next Buttons -->
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/previousButton"
+            android:layout_width="50dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/button_style"
+            android:contentDescription="@string/previousButton"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:tint="@color/blue" />
+
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="50dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/blue"
+            android:contentDescription="@string/nextButton"
+            android:src="@drawable/baseline_arrow_forward_24"
+            app:tint="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

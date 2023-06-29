@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">StepperForm</string>
+    <string name="step1button">Step1Button</string>
+    <string name="step2button">step2Button</string>
+    <string name="step3button">step3Button</string>
+    <string name="previousButton">previousButton</string>
+    <string name="nextButton">nextButton</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_a_new_user">CREATE A NEW USER</string>
+    <string name="account">Account</string>
+    <string name="personal">Personal</string>
+    <string name="success">Success</string>
+    <string name="contact">Contact</string>
+    <string name="other">Other</string>
+    <string name="personal_information">Personal Information:</string>
+    <string name="first_name">First Name</string>
+    <string name="middle_name">Middle Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="gender">Gender</string>
+</resources>
