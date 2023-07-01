@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".StepperFormFragment"
+    tools:context=".MainActivity"
     android:paddingStart="40dp"
     android:paddingEnd="40dp"
     android:gravity="center_vertical">
@@ -21,10 +21,10 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signupLastNameLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="Position"
+        android:hint="@string/position"
         app:boxBackgroundMode="outline"
         app:boxBackgroundColor="@color/white"
         app:endIconMode="clear_text">
@@ -34,17 +34,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="start|center_vertical"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password_signupLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="Password"
+        android:hint="@string/password"
         app:boxBackgroundMode="outline"
         app:boxBackgroundColor="@color/white"
         app:endIconMode="password_toggle">
@@ -62,10 +62,10 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/confirm_password_signupLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="Confirm Password"
+        android:hint="@string/confirm_password"
         app:boxBackgroundMode="outline"
         app:boxBackgroundColor="@color/white"
         app:endIconMode="password_toggle">

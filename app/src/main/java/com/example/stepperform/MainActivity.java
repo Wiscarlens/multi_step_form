@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView stepTwoTextView;
     private TextView stepThreeTextView;
     private ProgressBar progressBar;
+    ImageButton previousButton;
+    ImageButton nextButton;
 
     private FrameLayout stepContentContainer;
     private int currentStep = 1;
@@ -33,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         progressBar = findViewById(R.id.progress_horizontal);
-
-        // Progress bar default value
-        progressBar.setProgress(33);
 
         step1Button = findViewById(R.id.stepOneButton);
         step2Button = findViewById(R.id.stepTwoButton);
@@ -48,10 +47,13 @@ public class MainActivity extends AppCompatActivity {
         stepTwoTextView = findViewById(R.id.stepTwoTextView);
         stepThreeTextView = findViewById(R.id.stepThreeTextView);
 
-        ImageButton previousButton = findViewById(R.id.previousButton);
-        ImageButton nextButton = findViewById(R.id.nextButton);
+        previousButton = findViewById(R.id.previousButton);
+        nextButton = findViewById(R.id.nextButton);
 
         stepContentContainer = findViewById(R.id.stepContentContainer);
+
+        // Progress bar default value
+        progressBar.setProgress(33);
 
         step1Button.setOnClickListener(v -> {
             // Handle Step 1 button click
@@ -102,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         // Default Color
         int colorBlue = ContextCompat.getColor(this, R.color.blue);
         int colorGray = ContextCompat.getColor(this, R.color.light_gray);
+        int colorWhite = ContextCompat.getColor(this, R.color.white);
 
         // Set active button background
         switch (step) {
@@ -109,6 +112,9 @@ public class MainActivity extends AppCompatActivity {
                 stepOneLayout = LayoutInflater.from(this).inflate(R.layout.form_step_one, null);
                 stepContentContainer.removeAllViews();
                 stepContentContainer.addView(stepOneLayout);
+
+                previousButton.setClickable(false); // Make previousButton ot clickable
+                nextButton.setClickable(true); // Make nextButton to clickable
 
                 // Reset other views colors to gray
                 contactLeft.setBackgroundColor(colorGray);
@@ -121,11 +127,22 @@ public class MainActivity extends AppCompatActivity {
 
                 progressBar.setProgress(33);
 
+                // Reset previous button color
+                previousButton.setBackgroundResource(R.drawable.button_style);
+                previousButton.setColorFilter(colorBlue);
+
+                // Reset next button color
+                nextButton.setBackgroundColor(colorBlue);
+                nextButton.setColorFilter(colorWhite);
+
                 break;
             case 2:
                 stepTwoLayout = LayoutInflater.from(this).inflate(R.layout.form_step_two, null);
                 stepContentContainer.removeAllViews();
                 stepContentContainer.addView(stepTwoLayout);
+
+                previousButton.setClickable(true); // Make previousButton to clickable
+                nextButton.setClickable(true); // Make nextButton to clickable
 
                 contactLeft.setBackgroundColor(colorBlue);
                 step2Button.setBackgroundTintList(ColorStateList.valueOf(colorBlue));
@@ -139,11 +156,22 @@ public class MainActivity extends AppCompatActivity {
 
                 progressBar.setProgress(58);
 
+                // Change previous button color
+                previousButton.setBackgroundColor(colorBlue);
+                previousButton.setColorFilter(colorWhite);
+
+                // Reset next button color
+                nextButton.setBackgroundColor(colorBlue);
+                nextButton.setColorFilter(colorWhite);
+
                 break;
             case 3:
                 stepThreeLayout = LayoutInflater.from(this).inflate(R.layout.form_step_three, null);
                 stepContentContainer.removeAllViews();
                 stepContentContainer.addView(stepThreeLayout);
+
+                previousButton.setClickable(true); // Make previousButton to clickable
+                nextButton.setClickable(false);  // Make nextButton to clickable
 
                 contactLeft.setBackgroundColor(colorBlue);
                 step2Button.setBackgroundTintList(ColorStateList.valueOf(colorBlue));
@@ -154,6 +182,10 @@ public class MainActivity extends AppCompatActivity {
                 OtherRight.setBackgroundColor(colorBlue);
 
                 progressBar.setProgress(100);
+
+                // Change next button color
+                nextButton.setBackgroundResource(R.drawable.button_style);
+                nextButton.setColorFilter(colorBlue);
 
                 break;
         }

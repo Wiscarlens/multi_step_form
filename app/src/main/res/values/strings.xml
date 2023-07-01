@@ -19,4 +19,7 @@
     <string name="last_name">Last Name</string>
     <string name="date_of_birth">Date of Birth</string>
     <string name="gender">Gender</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="position">Position</string>
 </resources>
