@@ -6,14 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.android.material.textfield.TextInputEditText;
 
+public class MainActivity extends AppCompatActivity {
     private ImageButton step1Button;
     private ImageButton step2Button;
     private ImageButton step3Button;
@@ -23,11 +25,36 @@ public class MainActivity extends AppCompatActivity {
     private TextView stepTwoTextView;
     private TextView stepThreeTextView;
     private ProgressBar progressBar;
-    ImageButton previousButton;
-    ImageButton nextButton;
-
+    private ImageButton previousButton;
+    private ImageButton nextButton;
     private FrameLayout stepContentContainer;
-    private int currentStep = 1;
+    private View stepOneLayout;
+    private View stepTwoLayout;
+    private View stepThreeLayout;
+    private int currentStep = 1; // track step for next and previous button
+
+    // Declare Form part one field
+    private TextInputEditText firstName;
+    private TextInputEditText middleName;
+    private TextInputEditText lastName;
+    private TextInputEditText DOB;
+    private TextInputEditText gender;
+
+    // Declare Form part two field
+    private TextInputEditText email;
+    private TextInputEditText phoneNumber;
+    private TextInputEditText streetName;
+    private TextInputEditText city;
+    private TextInputEditText state;
+    private TextInputEditText zipCode;
+
+    // Declare Form part two field
+    private ImageView profileImage;
+    private TextInputEditText position;
+    private TextInputEditText password;
+    private TextInputEditText confirmedPassword;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,69 +79,92 @@ public class MainActivity extends AppCompatActivity {
 
         stepContentContainer = findViewById(R.id.stepContentContainer);
 
+        // Steps layout
+        stepOneLayout = LayoutInflater.from(this).inflate(R.layout.form_step_one, null);
+        stepTwoLayout = LayoutInflater.from(this).inflate(R.layout.form_step_two, null);
+        stepThreeLayout = LayoutInflater.from(this).inflate(R.layout.form_step_three, null);
+
+        // Step one form field
+        firstName = stepOneLayout.findViewById(R.id.signupFirstNameText);
+        middleName = stepOneLayout.findViewById(R.id.signupMiddleNameText);
+        lastName = stepOneLayout.findViewById(R.id.signupLastNameText);
+        DOB = stepOneLayout.findViewById(R.id.signupDOBText);
+        gender = stepOneLayout.findViewById(R.id.signupGenderText);
+
+        // Step two form field
+        email = stepTwoLayout.findViewById(R.id.signupEmailText);
+        phoneNumber = stepTwoLayout.findViewById(R.id.signupPhoneNumberText);;
+        streetName = stepTwoLayout.findViewById(R.id.signupStreetNameText);
+        city = stepTwoLayout.findViewById(R.id.signupCityText);
+        state = stepTwoLayout.findViewById(R.id.signupStateText);
+        zipCode = stepTwoLayout.findViewById(R.id.signupZipCodeText);
+
+        // Step three form field
+        profileImage = stepThreeLayout.findViewById(R.id.newProfileImage);
+        position = stepThreeLayout.findViewById(R.id.signupPositionText);
+        password = stepThreeLayout.findViewById(R.id.signupPasswordText);
+        confirmedPassword = stepThreeLayout.findViewById(R.id.signupConfirmPasswordText);
+
         // Progress bar default value
         progressBar.setProgress(33);
 
         step1Button.setOnClickListener(v -> {
             // Handle Step 1 button click
             showStepContent(1);
-            // Reset current step value in case use use step button instead
-            currentStep = 1;
         });
 
         step2Button.setOnClickListener(v -> {
             // Handle Step 2 button click
             showStepContent(2);
-            // Reset current step value in case use use step button instead
-            currentStep = 2;
         });
 
         step3Button.setOnClickListener(v -> {
             // Handle Step 3 button click
             showStepContent(3);
-            // Reset current step value in case use use step button instead
-            currentStep = 3;
         });
 
         previousButton.setOnClickListener(v -> {
-            // Decrease currentStep by 1
-            if (currentStep > 1) {
-                currentStep--;
-                showStepContent(currentStep);
-            }
+            currentStep--; // Decrease currentStep by 1
+            showStepContent(currentStep);
         });
 
         nextButton.setOnClickListener(v -> {
-            // Increase currentStep by 1
-            if (currentStep < 3) {
-                currentStep++;
-                showStepContent(currentStep);
-            }
+            currentStep++; // Increase currentStep by 1
+            showStepContent(currentStep);
         });
 
         // Show the initial step content
-        showStepContent(1);
+        showStepContent(currentStep);
     }
 
     private void showStepContent(int step) {
-        View stepOneLayout;
-        View stepTwoLayout;
-        View stepThreeLayout;
-
         // Default Color
         int colorBlue = ContextCompat.getColor(this, R.color.blue);
         int colorGray = ContextCompat.getColor(this, R.color.light_gray);
         int colorWhite = ContextCompat.getColor(this, R.color.white);
 
+        if (step < 1) {
+            step = 1;
+        }
+
+        else if(step > 3) {
+            step = 3;
+        }
+
         // Set active button background
         switch (step) {
             case 1:
-                stepOneLayout = LayoutInflater.from(this).inflate(R.layout.form_step_one, null);
                 stepContentContainer.removeAllViews();
                 stepContentContainer.addView(stepOneLayout);
 
-                previousButton.setClickable(false); // Make previousButton ot clickable
-                nextButton.setClickable(true); // Make nextButton to clickable
+                currentStep = 1; // Reset currentStep value to one
+
+                step1Button.setClickable(false); // Make step1Button not clickable
+                step2Button.setClickable(true); // Make step2Button clickable
+                step3Button.setClickable(true); // Make step3Button clickable
+
+                previousButton.setClickable(false); // Make previousButton not clickable
+                nextButton.setClickable(true); // Make nextButton clickable
 
                 // Reset other views colors to gray
                 contactLeft.setBackgroundColor(colorGray);
@@ -132,14 +182,21 @@ public class MainActivity extends AppCompatActivity {
                 previousButton.setColorFilter(colorBlue);
 
                 // Reset next button color
+                nextButton.setImageResource(R.drawable.baseline_arrow_forward_24);
                 nextButton.setBackgroundColor(colorBlue);
                 nextButton.setColorFilter(colorWhite);
 
                 break;
             case 2:
-                stepTwoLayout = LayoutInflater.from(this).inflate(R.layout.form_step_two, null);
                 stepContentContainer.removeAllViews();
                 stepContentContainer.addView(stepTwoLayout);
+
+                currentStep = 2; // Reset currentStep value to two
+
+                // Step button clickable
+                step1Button.setClickable(true);
+                step2Button.setClickable(false);
+                step3Button.setClickable(true);
 
                 previousButton.setClickable(true); // Make previousButton to clickable
                 nextButton.setClickable(true); // Make nextButton to clickable
@@ -161,17 +218,25 @@ public class MainActivity extends AppCompatActivity {
                 previousButton.setColorFilter(colorWhite);
 
                 // Reset next button color
+                nextButton.setImageResource(R.drawable.baseline_arrow_forward_24); // reset button icon
                 nextButton.setBackgroundColor(colorBlue);
                 nextButton.setColorFilter(colorWhite);
 
                 break;
             case 3:
-                stepThreeLayout = LayoutInflater.from(this).inflate(R.layout.form_step_three, null);
                 stepContentContainer.removeAllViews();
                 stepContentContainer.addView(stepThreeLayout);
 
+                currentStep = 3; // Reset currentStep value to three
+
+                // Step button clickable
+                step1Button.setClickable(true);
+                step2Button.setClickable(true);
+                step3Button.setClickable(false);
+
                 previousButton.setClickable(true); // Make previousButton to clickable
-                nextButton.setClickable(false);  // Make nextButton to clickable
+               // nextButton.setClickable(false);  // Make nextButton to clickable
+                nextButton.setClickable(true);
 
                 contactLeft.setBackgroundColor(colorBlue);
                 step2Button.setBackgroundTintList(ColorStateList.valueOf(colorBlue));
@@ -183,7 +248,12 @@ public class MainActivity extends AppCompatActivity {
 
                 progressBar.setProgress(100);
 
+                // Change previous button color
+                previousButton.setBackgroundColor(colorBlue);
+                previousButton.setColorFilter(colorWhite);
+
                 // Change next button color
+                nextButton.setImageResource(R.drawable.baseline_check_24); // Replace button icon
                 nextButton.setBackgroundResource(R.drawable.button_style);
                 nextButton.setColorFilter(colorBlue);
 

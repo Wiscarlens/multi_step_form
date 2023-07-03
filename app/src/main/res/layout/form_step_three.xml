@@ -11,15 +11,16 @@
     android:gravity="center_vertical">
 
     <ImageView
-        android:id="@+id/newItemImage"
+        android:id="@+id/newProfileImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/uploading"
         android:layout_marginBottom="10dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:contentDescription="@string/new_user_profile" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/signupLastNameLayout"
+        android:id="@+id/signupPositionLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
@@ -30,7 +31,7 @@
         app:endIconMode="clear_text">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/signupLastNameText"
+            android:id="@+id/signupPositionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="start|center_vertical"
@@ -39,7 +40,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password_signupLayout"
+        android:id="@+id/signupPasswordLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
@@ -50,17 +51,16 @@
         app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_signupText"
+            android:id="@+id/signupPasswordText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="start|center_vertical"
             android:inputType="textPassword"
-            android:textColor="@color/light_gray"
-            android:textColorHint="@color/light_gray" />
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/confirm_password_signupLayout"
+        android:id="@+id/signupConfirmPasswordLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
@@ -71,13 +71,12 @@
         app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/confirm_password_signupText"
+            android:id="@+id/signupConfirmPasswordText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="start|center_vertical"
             android:inputType="textPassword"
-            android:textColor="@color/light_gray"
-            android:textColorHint="@color/light_gray" />
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

@@ -22,4 +22,10 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="position">Position</string>
+    <string name="new_user_profile">New User Profile Picture</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="street_name">Street Name</string>
+    <string name="state">State</string>
+    <string name="zip_code">Zip Code</string>
 </resources>
