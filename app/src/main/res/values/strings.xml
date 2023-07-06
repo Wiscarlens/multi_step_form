@@ -5,7 +5,6 @@
     <string name="step3button">step3Button</string>
     <string name="previousButton">previousButton</string>
     <string name="nextButton">nextButton</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="create_a_new_user">CREATE A NEW USER</string>
     <string name="account">Account</string>

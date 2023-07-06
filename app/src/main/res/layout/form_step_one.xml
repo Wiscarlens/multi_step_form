@@ -90,9 +90,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/date_of_birth"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/baseline_calendar_month_24"
         app:boxBackgroundMode="outline"
-        app:boxBackgroundColor="@color/white"
-        app:endIconMode="clear_text">
+        app:boxBackgroundColor="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signupDOBText"
@@ -112,8 +113,7 @@
         android:layout_marginTop="8dp"
         android:hint="@string/gender"
         app:boxBackgroundMode="outline"
-        app:boxBackgroundColor="@color/white"
-        app:endIconMode="clear_text">
+        app:boxBackgroundColor="@color/white" >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signupGenderText"

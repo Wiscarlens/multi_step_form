@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -167,7 +168,7 @@
 
         <ImageButton
             android:id="@+id/previousButton"
-            android:layout_width="50dp"
+            android:layout_width="80dp"
             android:layout_height="48dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/button_style"
@@ -177,7 +178,7 @@
 
         <ImageButton
             android:id="@+id/nextButton"
-            android:layout_width="50dp"
+            android:layout_width="80dp"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
             android:background="@color/blue"
@@ -185,6 +186,19 @@
             android:src="@drawable/baseline_arrow_forward_24"
             app:tint="@color/white" />
 
+        <Button
+            android:id="@+id/saveButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="90dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="20dp"
+            android:backgroundTint="#4CAF50"
+            android:contentDescription="Save"
+            android:text="save"
+            android:textColor="@color/white"
+            android:visibility="gone"/>
+
     </LinearLayout>
+
 
 </LinearLayout>
